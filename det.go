@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// Det calculates the determinant of a matrix
 func Det(mat Mat) (float64, error) {
 	dim, err := GetDim(mat)
 

@@ -20,6 +20,8 @@ func (d *Dim) String() string {
 	return fmt.Sprint(d.Rows, "x", d.Cols)
 }
 
+// GetDim returns the dimension of a matrix
+// and checks if it's rectangular or not
 func GetDim(mat Mat) (*Dim, error) {
 	rows := len(mat[0])
 	cols := len(mat)

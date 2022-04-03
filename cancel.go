@@ -4,6 +4,9 @@ import (
 	"fmt"
 )
 
+// Cancel is a function that removes a row and a column
+// from a matrix and returns the resulting matrix.
+// This is useful when calculating determinants for example.
 func Cancel(mat Mat, row, col uint8) (Mat, error) {
 	dim, err := GetDim(mat)
 	if err != nil {
