@@ -8,15 +8,16 @@ func main() {
 	fmt.Println("Linear Algebra")
 
 	mat := Mat{
-		{1, 2, 3},
-		{4, 5, 6},
-		{7, 8, 9},
+		{1, 2, 3, 24},
+		{4, 2, 12, 7},
+		{7, -1, 9, 2},
+		{7, -1, 9, 12},
 	}
 
-	dim, err := GetDim(mat)
+	det, err := Det(mat)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(dim)
+	fmt.Println(det)
 }
