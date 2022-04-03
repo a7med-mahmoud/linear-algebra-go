@@ -20,7 +20,7 @@ func (d *Dim) String() string {
 	return fmt.Sprint(d.Rows, "x", d.Cols)
 }
 
-func GetDim(mat [][]float64) (*Dim, error) {
+func GetDim(mat Mat) (*Dim, error) {
 	rows := len(mat[0])
 	cols := len(mat)
 
