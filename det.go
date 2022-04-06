@@ -17,8 +17,8 @@ func Det(mat Mat) (float64, error) {
 		return 0, errors.New("can't calculate determinant of non-square matrix")
 	}
 
-	if dim.Rows == 2 {
-		return mat[0][0]*mat[1][1] - mat[1][0]*mat[0][1], nil
+	if dim.Rows == 1 {
+		return mat[0][0], nil
 	}
 
 	det := 0.0
