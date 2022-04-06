@@ -7,17 +7,17 @@ import (
 
 // Det calculates the determinant of a matrix
 func Det(mat Mat) (float64, error) {
-	dim, err := GetDim(mat)
+	rows, cols, err := Dim(mat)
 
 	if err != nil {
 		return 0, err
 	}
 
-	if dim.Rows != dim.Cols {
+	if rows != cols {
 		return 0, errors.New("can't calculate determinant of non-square matrix")
 	}
 
-	if dim.Rows == 1 {
+	if rows == 1 {
 		return mat[0][0], nil
 	}
 

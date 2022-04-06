@@ -1,36 +1,21 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-)
+import "errors"
 
-type Dim struct {
-	Rows, Cols uint8
-}
-
-func NewDim(rows, cols int) *Dim {
-	return &Dim{
-		Rows: uint8(rows),
-		Cols: uint8(cols),
-	}
-}
-
-func (d *Dim) String() string {
-	return fmt.Sprint(d.Rows, "x", d.Cols)
-}
-
-// GetDim returns the dimension of a matrix
-// and checks if it's rectangular or not
-func GetDim(mat Mat) (*Dim, error) {
+// Dim returns the dimension of a matrix
+// and checks if it's rectangular or not.
+// the first return value is the number of rows,
+// the second is the number of columns
+// and the third is an error (if present)
+func Dim(mat Mat) (uint8, uint8, error) {
 	rows := len(mat[0])
 	cols := len(mat)
 
 	for _, row := range mat {
 		if len(row) != rows {
-			return nil, errors.New("matrix is not rectangular")
+			return 0, 0, errors.New("matrix is not rectangular")
 		}
 	}
 
-	return NewDim(rows, cols), nil
+	return uint8(rows), uint8(cols), nil
 }

@@ -1,15 +1,15 @@
 package main
 
 func Transpose(mat Mat) (Mat, error) {
-	dim, err := GetDim(mat)
+	rows, cols, err := Dim(mat)
 	if err != nil {
 		return nil, err
 	}
-	trn := make(Mat, dim.Cols)
+	trn := make(Mat, cols)
 	for r, row := range mat {
 		for c, num := range row {
 			if r == 0 {
-				trn[c] = make([]float64, dim.Rows)
+				trn[c] = make([]float64, rows)
 			}
 			trn[c][r] = num
 		}
