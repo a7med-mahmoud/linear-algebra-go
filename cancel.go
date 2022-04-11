@@ -18,13 +18,13 @@ func Cancel(mat Mat, row, col uint8) (Mat, error) {
 	if col > cols {
 		return nil, fmt.Errorf("can't cancel column #%d from %d columns", row, cols)
 	}
-	ans := Mat{}
+	ans := make(Mat, 0, rows-1)
 	for r, nums := range mat {
 		if uint8(r) == row-1 {
 			continue
 		}
 
-		curr := []float64{}
+		curr := make([]float64, 0, cols-1)
 		for c, num := range nums {
 			if uint8(c) != col-1 {
 				curr = append(curr, num)
