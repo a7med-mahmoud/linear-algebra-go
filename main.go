@@ -14,10 +14,10 @@ func main() {
 		{7, -1, 9, 12},
 	}
 
-	det, err := Det(mat)
+	inv, err := Inverse(mat)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(det)
+	fmt.Println(inv)
 }
